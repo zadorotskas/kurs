@@ -48,6 +48,7 @@ public class TheAddressBook {
     {
         StringBuilder result = new StringBuilder();
         addressBook.forEach((name, address) -> result.append("name: ").append(name).append("\n").append(address.toString()).append("\n"));
+        result.delete(result.length() - 1, result.length());
         return result.toString();
     }
 
@@ -59,13 +60,5 @@ public class TheAddressBook {
             return addressBook.equals(other.addressBook);
             }
         return false;
-    }
-
-
-    public static void main(String[] args) {
-        Address myArd = new Address("km", 19, 16);
-        TheAddressBook onlyMe = new TheAddressBook(new HashMap<>());
-        onlyMe.set("Zadorotskas", myArd);
-	System.out.println(onlyMe);
     }
 }

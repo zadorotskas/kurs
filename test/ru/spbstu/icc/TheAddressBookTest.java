@@ -2,6 +2,8 @@ package ru.spbstu.icc;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 import static org.junit.Assert.*;
@@ -60,7 +62,6 @@ public class TheAddressBookTest {
 
     @Test
     public void testToString() {
-
         HashMap<String, Address> testMap = new HashMap<>();
         testMap.put("Zadorotskas", new Address("Karla Marxa", 19, 16));
         testMap.put("Feofilactov", new Address("Harchenko", 16, 538));
@@ -76,8 +77,45 @@ public class TheAddressBookTest {
                 "\nname: Zadorotskas" +
                 "\nstreet: Karla Marxa" +
                 "\nhouse: 19" +
-                "\napartment: 16" +
-                "\n";
+                "\napartment: 16";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getPeopleOnOneStreet() {
+        TheAddressBook addressBook = new TheAddressBook(new HashMap<>());
+        addressBook.set("Zadorotskas", new Address("Karla Marxa", 19, 16));
+        addressBook.set("Saveliev", new Address("Karla Marxa", 19, 19));
+        addressBook.set("Petrov", new Address("Karla Marxa", 20, 20));
+        addressBook.set("Ivanov", new Address("Lenina", 21, 32));
+
+        ArrayList<String> actual = new ArrayList<>();
+        actual.add("Zadorotskas");
+        actual.add("Saveliev");
+        actual.add("Petrov");
+        Collections.sort(actual);
+
+        ArrayList<String> expected = addressBook.getPeopleOnOneStreet("Karla Marxa");
+        Collections.sort(expected);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getPeopleInOneHouse() {
+        TheAddressBook addressBook = new TheAddressBook(new HashMap<>());
+        addressBook.set("Zadorotskas", new Address("Karla Marxa", 19, 16));
+        addressBook.set("Saveliev", new Address("Karla Marxa", 19, 19));
+        addressBook.set("Petrov", new Address("Karla Marxa", 20, 20));
+
+        ArrayList<String> actual = new ArrayList<>();
+        actual.add("Zadorotskas");
+        actual.add("Saveliev");
+        Collections.sort(actual);
+
+        ArrayList<String> expected = addressBook.getPeopleInOneHouse("Karla Marxa", 19);
+        Collections.sort(expected);
+
         assertEquals(expected, actual);
     }
 }
