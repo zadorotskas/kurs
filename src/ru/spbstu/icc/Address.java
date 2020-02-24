@@ -30,8 +30,7 @@ public class Address {
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return ("street: " + this.getStreet() +
                 "\nhouse: " + this.getHouseNumber() +
                 "\napartment: " + this.getApartmentNumber());
@@ -43,8 +42,7 @@ public class Address {
     }
 
     @Override
-    public boolean equals(Object obj)
-    {
+    public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj instanceof Address) {
             Address other = (Address)obj;

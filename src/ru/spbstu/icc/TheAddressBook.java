@@ -27,8 +27,7 @@ public class TheAddressBook {
         return addressBook.get(name);
     }
 
-    public ArrayList<String> getPeopleOnOneStreet(String streetName)
-    {
+    public ArrayList<String> getPeopleOnOneStreet(String streetName) {
         ArrayList<String> result = new ArrayList<>();
         addressBook.forEach((person, address) -> {
             if (address.street.equals(streetName)) result.add(person);
@@ -36,8 +35,7 @@ public class TheAddressBook {
         return result;
     }
 
-    public ArrayList<String> getPeopleInOneHouse(String streetName, int houseNumber)
-    {
+    public ArrayList<String> getPeopleInOneHouse(String streetName, int houseNumber) {
         ArrayList<String> result = new ArrayList<>();
         addressBook.forEach((person, address) -> {
             if (address.street.equals(streetName) && address.houseNumber == houseNumber) result.add(person);
@@ -46,8 +44,7 @@ public class TheAddressBook {
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         StringBuilder result = new StringBuilder();
         addressBook.forEach((name, address) -> result.append("name: ").append(name).append("\n").append(address.toString()).append("\n"));
         result.delete(result.length() - 1, result.length());
@@ -60,8 +57,7 @@ public class TheAddressBook {
     }
 
     @Override
-    public boolean equals(Object obj)
-    {
+    public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj instanceof TheAddressBook) {
             TheAddressBook other = (TheAddressBook) obj;
