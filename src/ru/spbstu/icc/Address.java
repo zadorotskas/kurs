@@ -1,5 +1,7 @@
 package ru.spbstu.icc;
 
+import java.util.Objects;
+
 public class Address {
     String street;
     int houseNumber;
@@ -27,6 +29,7 @@ public class Address {
         return apartmentNumber;
     }
 
+    @Override
     public String toString()
     {
         return ("street: " + this.getStreet() +
@@ -34,6 +37,12 @@ public class Address {
                 "\napartment: " + this.getApartmentNumber());
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(street, houseNumber, apartmentNumber);
+    }
+
+    @Override
     public boolean equals(Object obj)
     {
         if (this == obj) return true;

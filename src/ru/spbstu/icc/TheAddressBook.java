@@ -2,6 +2,7 @@ package ru.spbstu.icc;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class TheAddressBook {
     HashMap<String, Address> addressBook;
@@ -44,6 +45,7 @@ public class TheAddressBook {
         return result;
     }
 
+    @Override
     public String toString()
     {
         StringBuilder result = new StringBuilder();
@@ -52,6 +54,12 @@ public class TheAddressBook {
         return result.toString();
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(addressBook);
+    }
+
+    @Override
     public boolean equals(Object obj)
     {
         if (this == obj) return true;
