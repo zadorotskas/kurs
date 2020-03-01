@@ -3,9 +3,9 @@ package ru.spbstu.icc;
 import java.util.Objects;
 
 public class Address {
-    String street;
-    int houseNumber;
-    int apartmentNumber;
+    private final String street;
+    private final int houseNumber;
+    private final int apartmentNumber;
 
     public Address(String street, int houseNumber, int apartmentNumber)
     {
