@@ -9,6 +9,7 @@ public class Address {
 
     public Address(String street, int houseNumber, int apartmentNumber)
     {
+        if (houseNumber < 1 || apartmentNumber < 1) throw new IllegalArgumentException();
         this.street = street;
         this.houseNumber = houseNumber;
         this.apartmentNumber = apartmentNumber;
@@ -32,8 +33,8 @@ public class Address {
     @Override
     public String toString() {
         return ("street: " + this.getStreet() +
-                "\nhouse: " + this.getHouseNumber() +
-                "\napartment: " + this.getApartmentNumber());
+                System.lineSeparator() + "house: " + this.getHouseNumber() +
+                System.lineSeparator() + "apartment: " + this.getApartmentNumber());
     }
 
     @Override

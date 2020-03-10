@@ -51,7 +51,8 @@ public class TheAddressBook {
     public String toString() {
         if (addressBook.isEmpty()) return "";
         StringBuilder result = new StringBuilder();
-        addressBook.forEach((name, address) -> result.append("name: ").append(name).append(System.lineSeparator()).append(address.toString()).append(System.lineSeparator()));
+        addressBook.forEach((name, address) -> result.append("name: ").
+                append(name).append(System.lineSeparator()).append(address.toString()).append(System.lineSeparator()));
         result.delete(result.length() - 2, result.length());
         return result.toString();
     }
